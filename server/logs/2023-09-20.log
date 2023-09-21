@@ -1,0 +1,13 @@
+2023-09-20 - Status 401: Unauthorized no token provided
+2023-09-20 - Status 400: User dosn't exist
+2023-09-20 - Status 400: User dosn't exist
+2023-09-20 - Status 400: User dosn't exist
+2023-09-20 - Status 400: User dosn't exist
+2023-09-20 - Status 500: CastError: Cast to string failed for value "{ 'noam.kux@gmail.com': '' }" (type Object) at path "email" for model "User"
+2023-09-20 - Status 500: CastError: Cast to string failed for value "{ 'noam.kux@gmail.com': '' }" (type Object) at path "email" for model "User"
+2023-09-20 - Status 500: CastError: Cast to string failed for value "{ 'noam.kux@gmail.com': '' }" (type Object) at path "email" for model "User"
+2023-09-20 - Status 500: CastError: Cast to string failed for value "{ 'noam.kux@gmail.com': '' }" (type Object) at path "email" for model "User"
+2023-09-20 - Status 500: CastError: Cast to string failed for value "{ 'noam.kux@gmail.com': '' }" (type Object) at path "email" for model "User"
+2023-09-20 - Status 400: User dosn't exist
+2023-09-20 - Status 400: User dosn't exist
+2023-09-20 - Status 400: User dosn't exist

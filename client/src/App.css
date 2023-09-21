@@ -1,0 +1,148 @@
+.dark {
+  --color-primary: #27374d;
+  --color-secondery: #526d82;
+  --text-color: #e2ebf3;
+  --text-color-secondery: #c0c6cb;
+}
+.light {
+  --color-primary: white;
+}
+
+.App {
+  background-color: var(--color-primary);
+}
+
+.card {
+  height: 100% !important;
+}
+
+.dark .card {
+  background-color: var(--color-secondery);
+}
+
+.dark .header {
+  color: var(--text-color);
+}
+
+.dark .text {
+  color: var(--text-color-secondery);
+}
+
+.phone-dark {
+  color: var(--text-color);
+}
+
+.dark .footer {
+  background-color: var(--color-secondery) !important;
+  color: var(--text-color) !important ;
+}
+
+.dark .form-control,
+.dark .form-control:focus,
+input#floatingEmailInput {
+  background-color: var(--color-primary);
+  color: var(--text-color);
+}
+
+.dark label {
+  color: var(--text-color) !important;
+}
+
+.dark label::after {
+  background-color: var(--color-primary) !important;
+}
+
+.card .theme-text-dark {
+  color: var(--text-color);
+}
+
+.dark .card-text {
+  color: var(--text-color-secondery);
+}
+
+.show ~ .navbar-icons{
+  text-align: end;
+  width: 100% !important;
+}
+
+.fade.-dark.modal.show .modal-dialog,
+.fade.-dark.modal.show .modal-dialog .modal-content{
+  background-color: #27374d !important;
+  color: white !important;
+}
+
+.dark .hr {
+  color: var(--text-color);
+}
+
+/* .-dark.modal-header{
+    background-color: #526D82 !important;
+    color: #27374D !important;
+} */
+
+.dark .btn {
+  color: white;
+  background-color: var(--color-primary);
+}
+
+.card-body .card-footer {
+  background-color: white;
+}
+
+.dark .card-body .card-footer {
+  color: var(--text-color-secondery);
+  background-color: var(--color-secondery);
+}
+
+.hr-dark {
+  color: var(--text-color);
+}
+
+.component-container {
+  height: 100vh;
+}
+
+.card-details-container{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.card-footer {
+  border-top: 0px !important;
+}
+
+.phone {
+  color: black;
+}
+
+.map-container {
+  width: 40vw;
+  height: 75%;
+}
+.cardDetailsImg {
+  width: 70%;
+}
+
+@media (max-width: 500px) {
+  .map-container {
+    width: 90vw;
+  }
+
+  .component-container {
+    height: 100%;
+  }
+
+  .card-details-container{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  
+  
+  .cardDetailsImg {
+    margin-top: 320px;
+    object-fit: cover !important; 
+    padding: 20px;
+    width: 100% !important;
+  }
+}
