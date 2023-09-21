@@ -64,7 +64,6 @@ router.get("/", auth, async (req, res) => {
 
 router.post("/google", async (req, res) => {
   try {
-    console.log(req.body);
     let user = await User.findOne({ email: Object.keys(req.body)[0] });
     if (!user) {
       return (

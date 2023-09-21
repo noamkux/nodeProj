@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent} from "react";
 import { useNavigate } from "react-router-dom";
 import { successMsg, errorMsg } from "../services/feedbackService";
 import * as yup from "yup";
@@ -77,10 +77,6 @@ const NewCard: FunctionComponent<NewCardProps> = ({ userInfo }) => {
     },
   });
 
-  useEffect(() => {
-    console.log(formik.values);
-    
-  }, [formik.values]);
   return (
     <>
       <div className="w-100 container header">

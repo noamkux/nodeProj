@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import { FunctionComponent } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { successMsg, errorMsg } from "../services/feedbackService";
-import { addUser, checkUser, getTokenDetails } from "../services/userServices";
+import { addUser, getTokenDetails } from "../services/userServices";
 import * as yup from "yup";
 import User from "../interfaces/user";
 import { motion } from "framer-motion";
@@ -94,8 +94,6 @@ const Register: FunctionComponent<RegisterProps> = ({
         values.role = "business";
       } else values.role = "nonbusiness";
 
-      console.log(values);
-
       addUser(values)
         .then((res) => {
           navigate("/");
@@ -113,7 +111,9 @@ const Register: FunctionComponent<RegisterProps> = ({
             `Welcom ${values.name?.firstName} ${values.name?.lastName}`
           );
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {console.log(err)
+        errorMsg("Something went wrong, please try again");
+        });
     },
   });
   return (

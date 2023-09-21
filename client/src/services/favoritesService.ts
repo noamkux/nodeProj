@@ -9,7 +9,6 @@ export async function handleUserFav(cardId: number, userId: number) {
     }
     if (!res.data.favCards.includes(cardId)) {
       res.data.favCards.push(cardId);
-      console.log(res.data);
       
       await updateUserById(userId, res.data);
       return true

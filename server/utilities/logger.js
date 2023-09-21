@@ -2,9 +2,7 @@ const fs = require('fs');
 const log = require("./chalk.js")
 
 let createErrorLog = (statusCode, errorMessage) => {
-        console.log("here one");
         if (statusCode >= 400) {
-                console.log("here two");
           const currentDate = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
           const logFileName = `logs/${currentDate}.log`;
       

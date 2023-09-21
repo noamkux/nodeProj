@@ -1,8 +1,12 @@
 import { useFormik } from "formik";
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import { checkUser, getTokenDetails, loginWithGoogle } from "../services/userServices";
+import {
+  checkUser,
+  getTokenDetails,
+  loginWithGoogle,
+} from "../services/userServices";
 import { successMsg, errorMsg } from "../services/feedbackService";
 import User from "../interfaces/user";
 import { motion } from "framer-motion";
@@ -33,7 +37,6 @@ const Login: FunctionComponent<LoginProps> = ({ userInfo, setUserInfo }) => {
       checkUser(values)
         .then((res) => {
           sessionStorage.setItem("token", JSON.stringify({ token: res.data }));
-          console.log(res.data);
           sessionStorage.setItem(
             "userInfo",
             JSON.stringify({
@@ -110,33 +113,37 @@ const Login: FunctionComponent<LoginProps> = ({ userInfo, setUserInfo }) => {
               onSuccess={(res) => {
                 const USER_CREDENTIAL = jwtDecode(res.credential as any);
                 loginWithGoogle((USER_CREDENTIAL as any).email)
-                .then((res) => {
-                  sessionStorage.setItem("token", JSON.stringify({ token: res.data }));
-                  console.log(res.data);
-                  sessionStorage.setItem(
-                    "userInfo",
-                    JSON.stringify({
-                      email: (getTokenDetails() as any).email,
-                      role: (getTokenDetails() as any).role,
-                      userId: (getTokenDetails() as any)._id,
-                    })
-                  );
-                  setUserInfo(JSON.parse(sessionStorage.getItem("userInfo") as string));
-                  navigate("/");
-                  successMsg(
-                    `Welcom back ${
-                      JSON.parse(sessionStorage.getItem("userInfo") as string).email
-                    }`
-                  );
-                })
-                .catch((err) => {
-                  console.log(err);
-                  errorMsg("Invalid email or password");
-                });
-                
+                  .then((res) => {
+                    sessionStorage.setItem(
+                      "token",
+                      JSON.stringify({ token: res.data })
+                    );
+                    sessionStorage.setItem(
+                      "userInfo",
+                      JSON.stringify({
+                        email: (getTokenDetails() as any).email,
+                        role: (getTokenDetails() as any).role,
+                        userId: (getTokenDetails() as any)._id,
+                      })
+                    );
+                    setUserInfo(
+                      JSON.parse(sessionStorage.getItem("userInfo") as string)
+                    );
+                    navigate("/");
+                    successMsg(
+                      `Welcom back ${
+                        JSON.parse(sessionStorage.getItem("userInfo") as string)
+                          .email
+                      }`
+                    );
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                    errorMsg("Invalid email or password");
+                  });
               }}
               onError={() => {
-                console.log("fail");
+                console.log("failed to connect");
               }}
             ></GoogleLogin>
           </div>

@@ -118,7 +118,7 @@ const EditCardModal: FunctionComponent<EditCardModalProps> = ({
         ...values,
         ownerId: userInfo.userId,
       })
-        .then((res) => console.log(res.data))
+        .then((res) => (console.log("data updated")))
         .catch((err) => console.log(err));
 
       successMsg(values.title + " Card updated successfully");

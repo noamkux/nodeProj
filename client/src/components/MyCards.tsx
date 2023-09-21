@@ -1,10 +1,9 @@
 import { FunctionComponent, useContext, useEffect, useState } from "react";
 import Card from "../interfaces/card";
-import { deleteCard, getCardsByUserId } from "../services/cardService";
+import { getCardsByUserId } from "../services/cardService";
 import { Link } from "react-router-dom";
 import EditCardModal from "./EditCardModal";
 import { SiteTheme } from "../App";
-import { motion } from "framer-motion";
 import DeleteCardModal from "./DeleteCardModal";
 
 interface MyCardsProps {
@@ -14,16 +13,9 @@ interface MyCardsProps {
 const MyCards: FunctionComponent<MyCardsProps> = ({ userInfo }) => {
   let [userCards, setUserCards] = useState<Card[]>([]);
   let [dataUpdated, setDataUpdated] = useState<boolean>(false);
-  let render = () => setDataUpdated(!dataUpdated);
   let theme = useContext(SiteTheme);
 
-  let handleDelete = (id: number) => {
-    deleteCard(id)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-    render();
-  };
-
+  
   useEffect(() => {
     getCardsByUserId()
       .then((res) => setUserCards(res.data[0]))
@@ -31,7 +23,6 @@ const MyCards: FunctionComponent<MyCardsProps> = ({ userInfo }) => {
       
   }, [dataUpdated]);
 
-  console.log(userCards);
   
   return (
     <div className="component-container">
@@ -48,7 +39,7 @@ const MyCards: FunctionComponent<MyCardsProps> = ({ userInfo }) => {
         </Link>
         {userCards.length ? (
           <table
-            className={`${theme == "-dark" ? "table table-dark" : "table"}`}
+            className={`${theme === "-dark" ? "table table-dark" : "table"}`}
           >
             <thead>
               <tr>

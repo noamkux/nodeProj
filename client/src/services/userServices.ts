@@ -48,14 +48,11 @@ export function deleteUser(idToDelete: number) {
 }
 
 export function loginWithGoogle(email: string) {
-  console.log({email}.email);
-  
   return axios.post(`${api}/google`, {email}.email);
 }
 
 export function getTokenDetails() {
   let token = JSON.parse(sessionStorage.getItem("token") as any).token;
-  console.log(token);
 
   return jwt_decode(token);
 }
