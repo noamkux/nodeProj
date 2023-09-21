@@ -16,15 +16,6 @@ BCard is a web application built with React that allows users to discover and li
 2. Navigate to the project directory: `cd BCard`
 3. Install dependencies: `npm install`
 
-## Environment Variables
-
-Before running the project, you need to set up your environment variables. Create a `.env` file in the root directory of the project and add the following lines:
-
-REACT_APP_API=http://localhost:8000,
-
-REACT_APP_GOOGLE_API_KEY=
-
-
 ## Usage
 
 1. Start the local JSON server (assuming it's running on port 8000).
